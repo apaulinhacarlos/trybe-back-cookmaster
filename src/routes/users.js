@@ -1,8 +1,8 @@
 const express = require('express');
-// const productController = require('../controllers/productController');
+const usersController = require('../controllers/users');
 
 const router = express.Router({ mergeParams: true });
 
-router.get('/', () => console.log('teste get user'));
+router.post('/', usersController.create);
 
 module.exports = router;
