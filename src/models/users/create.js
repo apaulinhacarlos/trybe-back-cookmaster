@@ -1,4 +1,3 @@
-// const { ObjectId } = require('mongodb');
 const mongoConnection = require('../connection');
 
 const collection = 'users';
@@ -8,5 +7,5 @@ module.exports = async (document) => {
     .collection(collection)
     .insertOne(document);
   
-  return result;
+    return result;
 };

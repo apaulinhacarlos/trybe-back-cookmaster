@@ -6,13 +6,19 @@ module.exports = async (req, res, next) => {
     const { name, email, password } = req.body;
     const newUser = await userService.create({ name, email, password });
 
+    if (newUser.emailAlreadyExists) {
+      return res
+        .status(StatusCodes.CONFLICT)
+        .json({ message: newUser.emailAlreadyExists });
+      }
+
     if (newUser.details) {
       return res
         .status(StatusCodes.BAD_REQUEST)
         .json({ message: 'Invalid entries. Try again.' });
       }
 
-    return res.status(StatusCodes.CREATED).json(newUser.ops[0]);
+    return res.status(StatusCodes.CREATED).json({ user: newUser.ops[0] });
   } catch (error) {
     next(error);
   }

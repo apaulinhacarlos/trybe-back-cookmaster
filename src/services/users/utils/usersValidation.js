@@ -1,20 +1,13 @@
 const Joi = require('joi');
+const userModel = require('../../../models/users');
 
-// const isValidName = async (name) => {
-//   const alreadyExists = await modelGetByName.getByName(name);
-//   if (alreadyExists) return 'Product already exists';
-//   return false;
-// };
-
-const isValidEmail = (email) => {
-  const regexEmail = /^[a-z0-9._]+@[a-z]+\.[a-z]{2,3}(?:\.[a-z]{2})?$/;
-  if (regexEmail.test(email)) return true;
+const isValidEmail = async (name) => {
+  const alreadyExists = await userModel.findByEmail(name);
+  if (alreadyExists) return true;
   return false;
 };
 
-const isValidParams = (name, email, password) => {
-  // if (!isValidEmail(email)) return;
-  
+const isValidParams = async (name, email, password) => {
   const { error } = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
@@ -24,6 +17,6 @@ const isValidParams = (name, email, password) => {
 };
 
 module.exports = {
-  // isValidName,
+  isValidEmail,
   isValidParams,
 };
