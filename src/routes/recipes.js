@@ -1,8 +1,9 @@
 const express = require('express');
-// const productController = require('../controllers/productController');
+const recipesController = require('../controllers/recipes');
+const middleware = require('../middleware');
 
 const router = express.Router({ mergeParams: true });
 
-router.get('/', () => console.log('teste get recipes'));
+router.post('/', middleware.auth, recipesController.create);
 
 module.exports = router;
