@@ -4,15 +4,8 @@ const recipeService = require('../../services/recipes');
 module.exports = async (req, res, next) => {
   try {
     const { name, ingredients, preparation } = req.body;
-    // const userLogged = req.user;
-    const newRecipes = await recipeService.create({ name, ingredients, preparation });
-
-    // console.log(newRecipes);
-    // if (newUser.emailAlreadyExists) {
-    //   return res
-    //     .status(StatusCodes.CONFLICT)
-    //     .json({ message: newUser.emailAlreadyExists });
-    //   }
+    const userLogged = req.user;
+    const newRecipes = await recipeService.create(userLogged, { name, ingredients, preparation });
 
     if (newRecipes.details) {
       return res
@@ -20,10 +13,7 @@ module.exports = async (req, res, next) => {
         .json({ message: 'Invalid entries. Try again.' });
       }
 
-    
-
-    // return res.status(StatusCodes.CREATED).json({ user: newUser.ops[0] });
-    // return res.status(StatusCodes.CREATED).json({ user: newUser });
+    return res.status(StatusCodes.CREATED).json({ recipe: newRecipes });
   } catch (error) {
     next(error);
   }

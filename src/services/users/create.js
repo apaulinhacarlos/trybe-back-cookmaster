@@ -8,5 +8,5 @@ module.exports = async ({ name, email, password }) => {
   const error = await userValidation.isValidParams(name, email, password);
   if (error) return error;
   
-  return userModel.create({ name, email, password, role: 'user' });
+  return userModel.createUser({ name, email, password, role: 'user' });
 };
