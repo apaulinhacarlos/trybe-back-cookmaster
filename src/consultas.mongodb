@@ -1,0 +1,9 @@
+use('Cookmaster');
+db.users.findOne(
+  { 
+    $and: [
+      { "email": "erickjacquin@gmail.com" },
+      { "password": "12345678" }
+    ],
+  },
+);

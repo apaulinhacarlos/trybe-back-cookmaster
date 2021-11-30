@@ -4,21 +4,21 @@ const loginService = require('../../services/login');
 module.exports = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const login = await loginService.login({ email, password });    
+    const tokenLogin = await loginService.login({ email, password });    
 
-    if (login.details) {
+    if (tokenLogin.details) {
       return res
         .status(StatusCodes.UNAUTHORIZED)
         .json({ message: 'All fields must be filled' });
       }
 
-    if (login.incorrectUser) {
+    if (tokenLogin.incorrectUser) {
       return res
         .status(StatusCodes.UNAUTHORIZED)
-        .json({ message: login.incorrectUser });
+        .json({ message: tokenLogin.incorrectUser });
       }
-    // return res.status(StatusCodes.CREATED).json({ user: newUser.ops[0] });
-    // return res.status(StatusCodes.CREATED).json({ user: login });
+
+    return res.status(StatusCodes.OK).json({ token: tokenLogin });
   } catch (error) {
     next(error);
   }

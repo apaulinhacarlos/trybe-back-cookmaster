@@ -2,7 +2,7 @@ const Joi = require('joi');
 const userModel = require('../../../models');
 
 const isValidUser = async (email, password) => {
-  const userExists = await userModel.findByUser(email, password);
+  const userExists = await userModel.findUser(email, password);
   if (userExists) return true;
   return false;
 };
