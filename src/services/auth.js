@@ -10,14 +10,16 @@ const JWT_CONFIG = {
 const generateToken = (data) => jwt.sign({ data }, API_SECRET, JWT_CONFIG);
 
 const verifyToken = (token) => {
+  let decoded;
   try {
-    const decoded = jwt.verify(token, API_SECRET);
-    const result = decoded.data;
-    if (!result) return false;
-    return result;
+    decoded = jwt.verify(token, API_SECRET);
   } catch (error) {
-    return error;
+    return false;
   }
+  
+  const result = decoded.data;
+  if (!result) return false;
+  return result;
 };
 
 module.exports = {
