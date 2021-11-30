@@ -3,9 +3,10 @@ const mongoConnection = require('../connection');
 const collection = 'users';
 
 module.exports = async (document) => {
-  const result = (await mongoConnection.connection())
+  (await mongoConnection.connection())
     .collection(collection)
     .insertOne(document);
-  
-    return result;
+
+  const { password, ...userWithoutPassword } = document;
+  return userWithoutPassword;
 };
