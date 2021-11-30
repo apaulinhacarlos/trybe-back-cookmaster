@@ -1,8 +1,8 @@
 const express = require('express');
-// const productController = require('../controllers/productController');
+const loginController = require('../controllers/login');
 
 const router = express.Router({ mergeParams: true });
 
-router.get('/', () => console.log('teste get login'));
+router.post('/', loginController.login);
 
 module.exports = router;
