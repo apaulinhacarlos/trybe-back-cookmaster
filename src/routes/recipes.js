@@ -18,5 +18,6 @@ router.put(
   middleware.upload.single('image'),
   recipesController.upload,
 );
+router.get('/images/:id.jpeg', recipesController.findImage);
 
 module.exports = router;

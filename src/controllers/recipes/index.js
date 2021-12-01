@@ -4,6 +4,7 @@ const findById = require('./findById');
 const update = require('./update');
 const remove = require('./remove');
 const upload = require('./upload');
+const findImage = require('./findImage');
 
 module.exports = {
   create,
@@ -12,4 +13,5 @@ module.exports = {
   update,
   remove,
   upload,
+  findImage,
 };
