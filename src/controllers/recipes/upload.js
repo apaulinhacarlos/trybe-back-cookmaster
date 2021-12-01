@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
     const { path } = req.file;
 
     const split = path.split('cookmaster/');
-    const splitPath = `localhost:3000/${split[1]}`;
+    const splitPath = `localhost:3000/${split[split.length - 1]}`;
 
     await recipeService.upload(id, splitPath);
 
