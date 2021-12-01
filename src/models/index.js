@@ -1,12 +1,12 @@
 const createUser = require('./createUser');
-const findByEmail = require('./findByEmail');
+const findUserByEmail = require('./findUserByEmail');
 const findUser = require('./findUser');
 const createRecipe = require('./createRecipe');
 const findRecipe = require('./findRecipe');
 
 module.exports = {
   createUser,
-  findByEmail,
+  findUserByEmail,
   findUser,
   createRecipe,
   findRecipe,
