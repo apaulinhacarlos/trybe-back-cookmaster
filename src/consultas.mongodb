@@ -7,3 +7,6 @@ db.users.findOne(
     ],
   },
 );
+
+use('Cookmaster');
+db.recipes.find();
