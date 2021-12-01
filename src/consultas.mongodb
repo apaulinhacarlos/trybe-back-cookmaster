@@ -20,3 +20,9 @@ db.users.insertOne(
     role: 'user'
   }
 );
+
+use('Cookmaster');
+db.recipes.updateOne(
+  { _id: ObjectId(id) },
+  { $set: { image: path } },
+);
