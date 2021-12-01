@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (!token) {
-      return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'jwt malformed' });
+      return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'missing auth token' });
     }
 
     const user = authService.verifyToken(token);

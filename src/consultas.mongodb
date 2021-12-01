@@ -9,7 +9,7 @@ db.users.findOne(
 );
 
 use('Cookmaster');
-db.users.find();
+db.recipes.find();
 
 use('Cookmaster');
 db.users.insertOne(
