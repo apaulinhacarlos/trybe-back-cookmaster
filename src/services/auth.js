@@ -14,11 +14,11 @@ const verifyToken = (token) => {
   try {
     decoded = jwt.verify(token, API_SECRET);
   } catch (error) {
-    return false;
+    return null;
   }
   
   const result = decoded.data;
-  if (!result) return false;
+  if (!result) return null;
   return result;
 };
 

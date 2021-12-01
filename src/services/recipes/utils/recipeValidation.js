@@ -1,11 +1,4 @@
 const Joi = require('joi');
-// const userModel = require('../../../models');
-
-// const isValidEmail = async (email) => {
-//   const alreadyExists = await userModel.findByEmail(email);
-//   if (alreadyExists) return true;
-//   return false;
-// };
 
 const isValidParams = async (name, ingredients, preparation) => {
   const { error } = Joi.object({
@@ -17,6 +10,5 @@ const isValidParams = async (name, ingredients, preparation) => {
 };
 
 module.exports = {
-  // isValidEmail,
   isValidParams,
 };

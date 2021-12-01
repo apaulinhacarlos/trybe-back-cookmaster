@@ -9,4 +9,8 @@ db.users.findOne(
 );
 
 use('Cookmaster');
-db.recipes.find();
+db.recipes.findOne(
+  { 
+    _id: ObjectId('61a7b51cd4f58e11d08ce562')
+  },
+);
