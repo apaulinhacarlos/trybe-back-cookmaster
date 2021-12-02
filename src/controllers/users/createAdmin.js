@@ -1,8 +1,8 @@
-const { StatusCodes } = require('http-status-codes');
-const userService = require('../../services/users');
+// const { StatusCodes } = require('http-status-codes');
+// const userService = require('../../services/users');
 
-module.exports = async (req, res, next) => {
-  console.log('create Admin');
+// module.exports = async (req, res, next) => {
+//   console.log('create Admin');
   // try {
   //   const { name, email, password } = req.body;
   //   const newUser = await userService.createAdmin({ name, email, password });
@@ -24,4 +24,4 @@ module.exports = async (req, res, next) => {
   // } catch (error) {
   //   next(error);
   // }
-};
+// };
