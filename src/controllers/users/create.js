@@ -18,7 +18,6 @@ module.exports = async (req, res, next) => {
         .json({ message: 'Invalid entries. Try again.' });
       }
 
-    // return res.status(StatusCodes.CREATED).json({ user: newUser.ops[0] });
     return res.status(StatusCodes.CREATED).json({ user: newUser });
   } catch (error) {
     next(error);
