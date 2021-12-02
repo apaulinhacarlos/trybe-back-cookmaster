@@ -4,12 +4,11 @@ const recipeService = require('../../services/recipes');
 module.exports = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { path } = req.file;
+    const { filename } = req.file;
 
-    const split = path.split('cookmaster/');
-    const splitPath = `localhost:3000/${split[split.length - 1]}`;
+    const imageURL = `localhost:3000/src/uploads/${filename}`;
 
-    await recipeService.upload(id, splitPath);
+    await recipeService.upload(id, imageURL);
 
     const recipe = await recipeService.findById(id);
 
