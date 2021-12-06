@@ -1,4 +1,4 @@
-const userModel = require('../../models');
+const userModel = require('../../models/users');
 const loginValidation = require('./utils/loginValidation');
 const authService = require('../auth');
 

@@ -4,9 +4,8 @@ const recipeService = require('../../services/recipes');
 module.exports = async (req, res, next) => {
   try {
     const { id } = req.params;    
-    // const userLogged = req.user;
 
-    await recipeService.remove(id /* userLogged */);
+    await recipeService.remove(id);
 
     return res.status(StatusCodes.NO_CONTENT).end();
   } catch (error) {

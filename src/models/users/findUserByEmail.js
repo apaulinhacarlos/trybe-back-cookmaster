@@ -1,4 +1,4 @@
-const mongoConnection = require('./connection');
+const mongoConnection = require('../connection');
 
 const collection = 'users';
 

@@ -1,7 +1,7 @@
-const userModel = require('../../models');
+const recipeModel = require('../../models/recipes');
 
 module.exports = async () => {
-  const recipesFound = await userModel.findRecipe();
+  const recipesFound = await recipeModel.findRecipe();
 
   return recipesFound;
 };

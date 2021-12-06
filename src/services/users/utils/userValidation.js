@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const userModel = require('../../../models');
+const userModel = require('../../../models/users');
 
 const isValidEmail = async (email) => {
   const alreadyExists = await userModel.findUserByEmail(email);

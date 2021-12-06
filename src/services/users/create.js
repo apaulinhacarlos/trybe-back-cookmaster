@@ -1,4 +1,4 @@
-const userModel = require('../../models');
+const userModel = require('../../models/users');
 const userValidation = require('./utils/userValidation');
 
 module.exports = async ({ name, email, password }) => {

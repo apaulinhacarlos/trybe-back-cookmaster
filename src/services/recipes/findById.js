@@ -1,7 +1,7 @@
-const userModel = require('../../models');
+const recipeModel = require('../../models/recipes');
 
 module.exports = async (id) => {
-  const recipesFound = await userModel.findRecipesById(id);
+  const recipesFound = await recipeModel.findRecipesById(id);
 
   return recipesFound;
 };

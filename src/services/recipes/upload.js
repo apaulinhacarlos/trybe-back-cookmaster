@@ -1,3 +1,3 @@
-const userModel = require('../../models');
+const recipeModel = require('../../models/recipes');
 
-module.exports = async (id, path) => userModel.uploadRecipe(id, path);
+module.exports = async (id, path) => recipeModel.uploadRecipe(id, path);

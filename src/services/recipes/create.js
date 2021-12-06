@@ -1,4 +1,5 @@
-const userModel = require('../../models');
+const userModel = require('../../models/users');
+const recipeModel = require('../../models/recipes');
 const recipeValidation = require('./utils/recipeValidation');
 
 module.exports = async (user, { name, ingredients, preparation }) => {
@@ -9,5 +10,5 @@ module.exports = async (user, { name, ingredients, preparation }) => {
   const userLogged = await userModel.findUserByEmail(email);
   const { _id: userId } = userLogged;
   
-  return userModel.createRecipe({ name, ingredients, preparation, userId });
+  return recipeModel.createRecipe({ name, ingredients, preparation, userId });
 };
